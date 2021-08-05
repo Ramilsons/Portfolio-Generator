@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/default.css">
+    <link rel="stylesheet" href="style/form.css">
+    <title>Formulário | Gport</title>
+</head>
+<body>
+    <header>
+        <div>aqui vai as bolinhas de indentificação de etapa</div>
+    </header>
+    <article>
+        <form method="POST" action="#">
+
+            <div class="form active">
+                <h2>Sobre você</h2>
+                <input type="text" name="name" placeholder="Nome">
+                <input type="number" name="age" placeholder="Idade">
+                <input type="email" name="age" placeholder="E-mail">
+                <input type="phone" name="age" placeholder="Telefone">
+                <textarea style="resize: none" name="description" placeholder="Texto sobre você"></textarea>
+
+                <a class="back" href="/">Home</a>
+                <button type="button" class="next" onclick="nextPageForm()">Próximo</button>              
+            </div>
+
+            <div class="form">
+                <h2>Educação</h2>
+                <input type="text" name="course" placeholder="Nome do curso">
+                <input type="text" name="institution" placeholder="Instituição">
+                <input type="text" name="time" placeholder="Duração">
+
+                <button type="button">Adicionar mais cursos</button>
+
+                <a class="back" onclick="previousPageForm()">Voltar</a>
+                <button type="button" class="next" onclick="nextPageForm()">Próximo</button>
+            </div>
+            
+            <div class="form">
+                <h2>Projetos</h2>
+                <input type="text" name="nameProject" placeholder="Nome">
+                <input type="text" name="skillsProject" placeholder="Habilidades que esse projeto exigiu">
+                <button>Adicionar Habilidade</button>
+                <input type="text" name="" placeholder="Duração">
+
+                <button>Adicionar mais projetos</button>
+
+                <a class="back" onclick="previousPageForm()">Voltar</a>
+                <button class="next">Enviar</button>
+            </div>
+        </form>
+    </article>
+    <script type="text/javascript" src="/scripts/formScript.js"></script>
+</body>
+</html>
