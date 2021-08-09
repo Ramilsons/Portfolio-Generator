@@ -82,3 +82,12 @@ a.back{
 .form button{
     cursor: pointer;
 }
+
+.spanHidden{
+    display: none;
+}
+
+#allCourse div{
+    margin-bottom: 2rem;
+}
+

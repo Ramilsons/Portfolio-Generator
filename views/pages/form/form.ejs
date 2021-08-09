@@ -19,11 +19,11 @@
 
             <div class="form active">
                 <h2>Sobre você</h2>
-                <input type="text" name="name" placeholder="Nome">
-                <input type="number" name="age" placeholder="Idade">
-                <input type="email" name="age" placeholder="E-mail">
-                <input type="phone" name="age" placeholder="Telefone">
-                <textarea style="resize: none" name="description" placeholder="Texto sobre você"></textarea>
+                <input type="text" name="name" placeholder="Nome" >
+                <input type="number" name="age" placeholder="Idade" >
+                <input type="email" name="email" placeholder="E-mail" >
+                <input type="phone" name="phone" placeholder="Telefone" >
+                <textarea style="resize: none" name="description" placeholder="Escreva um pouco sobre você" ></textarea>
 
                 <a class="back" href="/">Home</a>
                 <button type="button" class="next" onclick="nextPageForm()">Próximo</button>              
@@ -31,11 +31,15 @@
 
             <div class="form">
                 <h2>Educação</h2>
-                <input type="text" name="course" placeholder="Nome do curso">
-                <input type="text" name="institution" placeholder="Instituição">
-                <input type="text" name="time" placeholder="Duração">
 
-                <button type="button">Adicionar mais cursos</button>
+                <section id="allCourse">
+                    <div id="course">
+                        <input type="text" name="course1" placeholder="Nome do curso" >
+                        <input type="text" name="institution1" placeholder="Instituição" >
+                        <input type="text" name="time1" placeholder="Duração" >
+                    </div>
+                </section>
+                <button type="button" onclick="addInputsEducation()">Adicionar mais cursos</button>
 
                 <a class="back" onclick="previousPageForm()">Voltar</a>
                 <button type="button" class="next" onclick="nextPageForm()">Próximo</button>
@@ -43,18 +47,29 @@
             
             <div class="form">
                 <h2>Projetos</h2>
-                <input type="text" name="nameProject" placeholder="Nome">
-                <input type="text" name="skillsProject" placeholder="Habilidades que esse projeto exigiu">
-                <button>Adicionar Habilidade</button>
-                <input type="text" name="" placeholder="Duração">
 
-                <button>Adicionar mais projetos</button>
+                <div class="project">
+                    <input type="text" name="nameProject" placeholder="Nome" >
+                    <input type="text" name="skillsProject" placeholder="Habilidades que esse projeto exigiu">
+                    
+                    <section id="allSkills">
+                        <span class="spanHidden">* clique na habilidade para excluir</span>
+                    </section>
+                    <button type="button" onclick="addSkill()">Adicionar Habilidade</button>
+
+                    <input type="text" name="" placeholder="Duração" >
+                </div>
+
+
+                <button type="button" onclick="addProject()">Adicionar mais projetos</button>
 
                 <a class="back" onclick="previousPageForm()">Voltar</a>
-                <button class="next">Enviar</button>
+                <button class="next" onclick="sendForm()">Enviar</button>
             </div>
         </form>
     </article>
+
     <script type="text/javascript" src="/scripts/formScript.js"></script>
+
 </body>
 </html>

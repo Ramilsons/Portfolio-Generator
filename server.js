@@ -1,20 +1,22 @@
-const express = require('express')
-const router = require('./routes/routes')
+import express from 'express';
+import router from './routes/routes.js';
+
+
 const PORT = 8080;
 
 // execute o express
-const app = express()
+const app = express();
 
 // configure express for data coming from req.body
-app.use(express.json())
-app.use(express.urlencoded({ extended: true}))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true}));
 
 // load my routes
-app.use(router)
+app.use(router);
 app.set('view engine', 'ejs');
 
 // configure past for archives js and css(static archives)
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 // initialize my server
-app.listen(PORT, () => { console.log('Server linstening port: ' + PORT) })
+app.listen(PORT, () => { console.log('Server linstening port: ' + PORT) });
