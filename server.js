@@ -11,6 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 
+
 // load my routes
 app.use(router);
 app.set('view engine', 'ejs');
@@ -19,4 +20,4 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 // initialize my server
-app.listen(PORT, () => { console.log('Server linstening port: ' + PORT) });
+app.listen(PORT, () => { console.log('⚡ Server linstening port: ' + PORT) });

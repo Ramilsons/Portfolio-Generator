@@ -7,9 +7,14 @@ article{
     margin-top: 20%;
     border-radius: 2rem 2rem 0 0;
     padding: 2rem 5%;
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    max-height: 70%;  
+    overflow:auto; 
 }
 
-h2{
+.form h2{
     margin: 2.5rem 0 2.5rem;
     color: #5A5959;
     font-size: 1.3rem;
@@ -91,3 +96,53 @@ a.back{
     margin-bottom: 2rem;
 }
 
+
+.modalCourse, .modalProject{
+    display: none;
+    background-color: #c3dcc781;
+}
+
+.modalCourse.active, .modalProject.active{
+    display: block;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    position: absolute;
+    top:0;
+    left: 0;
+    display: flex;
+    align-items: center;
+}
+
+
+.modalCourse.active .centerModal, .modalProject.active .centerModal{
+    background-color: #fff;
+    display: block;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 6rem 2rem 2rem;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.closeModal{
+    position: absolute;
+    top: 0;
+    margin-top: -0.5rem;
+    right: 0;
+
+    background-color: rgb(226, 66, 66);
+    color: #fff;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 1px solid rgb(238, 153, 153);
+}
+
+.modalCourse.active .next, .modalProject.active .next{
+    background-color:#FF8BA7;
+    width: auto;
+    margin-right: 0;
+    padding: 0.5rem 1.3rem;
+    margin-top: 3rem;
+}
