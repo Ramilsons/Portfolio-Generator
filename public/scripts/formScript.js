@@ -1,50 +1,44 @@
 // ------------ Geral -------------- //
 function nextPageForm(){
     let allForms = document.querySelectorAll('.form');
-
+    
     for(let i = 0; i < allForms.length; i++){
-
+        
         if(allForms[i].classList[1] == 'active'){
             allForms[i+1].classList.add('active');
             allForms[i].classList.remove('active');
             
             break;
         }
-
+        
     }
 }
 
 
 function previousPageForm(){
-
+    
     let allForms = document.querySelectorAll('.form');
-
+    
     for(let i = 0; i < allForms.length; i++){
-
+        
         if(allForms[i].classList[1] == 'active'){
             allForms[i-1].classList.add('active');
             allForms[i].classList.remove('active');
 
             break; 
         }
-
+        
     }
 }
 
-
-function sendForm(){
-    //saveCourse();
-    //request(listCourses);
-}
-
-
-function request(data){
+async function request(data){
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
     }
-    fetch("/teste", options);
+    const response = await fetch("/new-course", options);
+    return response
 }
 
 
@@ -52,15 +46,20 @@ function request(data){
 const listCourses = []
 const listProjects = []
 
-function addCourse(){
-    if(document.querySelector('.warningCourse')){
-        document.querySelector('.warningCourse').remove();
-    }
+
+async function addCourse(){
     let nameCourse = document.querySelector("input[name='course']").value;
     let institutionCourse = document.querySelector("input[name='institution']").value;
     let timeCourse = document.querySelector("input[name='time']").value;
 
     if(nameCourse != "" && institutionCourse != "" && timeCourse != ""){
+        listCourses.push({"nameCourse": nameCourse, "institutionCourse":institutionCourse, "time": timeCourse});
+
+        if(document.querySelector('.warningCourse')){
+            document.querySelector('.warningCourse').remove();
+        }
+
+        const responseAddCourse = await request(listCourses);
         let newDivCourse = `
         <div id="course">
             <h4 class="nameCourse">${nameCourse}</h4>
@@ -180,7 +179,7 @@ function addProject(){
         skillsProject = [];
         document.getElementById('allSkills').innerHTML = '';
 
-        //document.querySelector("span[data-js='spanWarning'").classList.add('spanHidden');
+        //document.querySelector("span[data-js='spanWarning']").classList.add('spanHidden');
         document.querySelector(`input[name="imgProject"]`).value = allImages
     }else{
         alert('Preencha todos os campos para conseguir salvar');

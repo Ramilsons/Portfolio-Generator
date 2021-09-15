@@ -14,16 +14,21 @@ router.post('/novo-portfolio', upload.single('imgProject'), function (req, res, 
     console.log(req.body)
     res.redirect('/');
 })
+
+
 // Form
 router.get('/form', (req, res)=> {
     res.render('pages/form/form.ejs');
 })
 
-/*router.post('/form', (req, res)=> {
-    res.send('Algumas informações ' + req.body);
-
-})*/
 
 // Portfolio
+
+
+// Teste
+router.post('/new-course', (req, res) => {
+    console.log("In backend: "+JSON.stringify(req.body));
+    res.send('brabo, tá?');
+})
 
 export default router;
